@@ -1,1 +1,12 @@
-theme: jekyll-theme-midnight
+title: 마흔넘은 개발자
+email: setvect@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  내 사랑 복슬이
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  setvect
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
