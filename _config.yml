@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "neon" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale: "ko-KR"
@@ -20,7 +20,7 @@ title: "마흔 넘은 개발자"
 title_separator: "-"
 subtitle: # site tagline that appears below site title in masthead
 name: "setvect"
-description: "글"
+description: "이런저런 개발이야기"
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -29,8 +29,11 @@ logo: # path of logo image to display in the masthead, e.g. "/assets/images/88x8
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute: 200
+enable_copy_code_button: true # true, false (default)
+copyright: # "copyright" name, defaults to site.title
+copyright_url: # "copyright" URL, defaults to site.url
 comments:
-  provider: # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  provider: # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
     shortname: # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -43,6 +46,18 @@ comments:
   utterances:
     theme: # "github-light" (default), "github-dark"
     issue_term: # "pathname" (default)
+  giscus:
+    repo_id: # Shown during giscus setup at https://giscus.app
+    category_name: # Full text name of the category
+    category_id: # Shown during giscus setup at https://giscus.app
+    discussion_term: # "pathname" (default), "url", "title", "og:title"
+    reactions_enabled: # '1' for enabled (default), '0' for disabled
+    theme: # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
+    strict: # 1 for enabled, 0 for disabled (default)
+    input_position: # "top", "bottom" # The comment input box will be placed above or below the comments
+    emit_metadata: # 1 for enabled, 0 for disabled (default) # https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#imetadatamessage
+    lang: # "en" (default)
+    lazy: # true, false # Loading of the comments will be deferred until the user scrolls near the comments container.
   staticman:
     branch: # "master"
     endpoint: # "https://{your Staticman v3 API}/v3/entry/github/"
@@ -51,9 +66,12 @@ reCaptcha:
   secret:
 atom_feed:
   path: # blank (default) uses feed.xml
+  hide: # true, false (default)
 search: # true, false (default)
 search_full_content: # true, false (default)
 search_provider: # lunr (default), algolia, google
+lunr:
+  search_within_pages: # true, false (default)
 algolia:
   application_id: # YOUR_APPLICATION_ID
   index_name: # YOUR_INDEX_NAME
@@ -65,8 +83,9 @@ google:
 # SEO Related
 google_site_verification:
 bing_site_verification:
-yandex_site_verification:
 naver_site_verification:
+yandex_site_verification:
+baidu_site_verification:
 
 # Social Sharing
 twitter:
@@ -93,7 +112,7 @@ analytics:
 # Site Author
 author:
   name: "setvect"
-  avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar: /assets/images/boksl.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   # bio: "I am an **amazing** person."
   # location: "Somewhere"
   email:
@@ -201,9 +220,32 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
+timezone: Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Pagination with jekyll-paginate
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Pagination with jekyll-paginate-v2
+# See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
+#   for configuration details
+pagination:
+  # Set enabled to true to use paginate v2
+  # enabled: true
+  debug: false
+  collection: "posts"
+  per_page: 10
+  permalink: "/page/:num/"
+  title: ":title - page :num"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+  category: "posts"
+  tag: ""
+  locale: ""
+  trail:
+    before: 2
+    after: 2
 
 # Plugins (previously gems:)
 plugins:
@@ -256,7 +298,7 @@ compress_html:
   ignore:
     envs: development
 
-# Defaults Post들에 적용될 기본 설정들
+# Defaults
 defaults:
   # _posts
   - scope:
@@ -266,14 +308,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
-      share: false
+      comments: true # true
+      share: true
       related: true
-
-  # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true

@@ -1,9 +1,13 @@
-# coding: utf-8
+require "json"
+
+# 현재 파일의 절대 경로를 구하고, 그 위치에서 package.json 파일을 찾습니다.
+root = File.expand_path("..", __FILE__)
+package_json = JSON.parse(File.read(File.join(root, "package.json")))
 
 Gem::Specification.new do |spec|
   spec.name                    = "minimal-mistakes-jekyll"
-  spec.version                 = "4.21.0"
-  spec.authors                 = ["Michael Rose"]
+  spec.version                 = package_json["version"]
+  spec.authors                 = ["Michael Rose", "iBug"]
 
   spec.summary                 = %q{A flexible two-column Jekyll theme.}
   spec.homepage                = "https://github.com/mmistakes/minimal-mistakes"

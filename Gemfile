@@ -1,7 +1,11 @@
 source "https://rubygems.org"
-gemspec
 
-# gem 'jekyll-admin', group: :jekyll_plugins
-gem 'jekyll-sitemap'
-gem 'rack'
-gem 'webrick'
+gem "jekyll", "~> 4.2.0"
+gem "jekyll-feed", "~> 0.15"
+gem "jekyll-seo-tag", "~> 2.7"
+gem "jekyll-paginate", "~> 1.1"
+gem "jekyll-sitemap", "~> 1.4"
+gem "jekyll-gist", "~> 1.5"
+gem "jekyll-github-metadata", "~> 2.13"
+gem "jekyll-include-cache", "~> 0.2.1"
+gem "webrick", "~> 1.7"
