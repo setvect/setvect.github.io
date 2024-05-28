@@ -1,5 +1,8 @@
 # main links
 main:
+  - title: "Github Repoistory"
+    url: https://github.com/setvect
+    target: _blank
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
