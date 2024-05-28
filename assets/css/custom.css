@@ -1,0 +1,12 @@
+.archive__item-date {
+  font-size: 0.7em;
+  color: #666;
+  text-align: right;
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 1.3em;
+}
+
+.archive__item-excerpt {
+  margin-bottom: 0.5em !important;
+}
