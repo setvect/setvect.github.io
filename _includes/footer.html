@@ -20,4 +20,22 @@
 
 <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} <a href="{{ site.copyright_url | default: site.url }}">{{ site.copyright | default: site.title }}</a>. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
-<script src="{{ "/assets/js/custom.js" | relative_url }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var disqusShortname = '{{ site.comments.disqus.shortname }}';
+    var disqusIdentifierElements = document.querySelectorAll(".comment-count");
+    console.log('disqusShortname :>> ', disqusShortname);
+    console.log('disqusIdentifierElements.length :>> ', disqusIdentifierElements.length);
+    if (disqusIdentifierElements.length > 0) {
+      disqusIdentifierElements.forEach(function(element) {
+        var identifier = element.getAttribute('data-disqus-identifier');
+        element.innerHTML = '<a href="' + identifier + '#disqus_thread">Comments</a>';
+      });
+
+      var script = document.createElement('script');
+      script.src = 'https://' + disqusShortname + '.disqus.com/count.js';
+      script.id = 'dsq-count-scr';
+      document.body.appendChild(script);
+    }
+  });
+</script>
