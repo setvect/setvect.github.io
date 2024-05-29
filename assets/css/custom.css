@@ -1,7 +1,7 @@
 .archive__item-date {
   font-size: 0.7em;
   color: #666;
-  text-align: right;
+  float: right;
   display: block;
   margin-top: 0.3em;
   margin-bottom: 1.3em;
@@ -12,7 +12,14 @@
 }
 
 .comment-count {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 5px;
+  float: left;
+  font-size: 0.7em;
+  float: left;
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 1.3em;
+}
+
+.comment-count>a {
+  color: #888 ;
 }
