@@ -10,3 +10,9 @@
 .archive__item-excerpt {
   margin-bottom: 0.5em !important;
 }
+
+.comment-count {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+}
