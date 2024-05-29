@@ -29,7 +29,7 @@
     <p class="archive__item-date">{{ post.date | date: "%Y.%m.%d" }}</p>
   <!-- 댓글 수 표시 -->
     <p class="comment-count">
-      <a href="{{ post.url | relative_url }}#disqus_thread" data-disqus-identifier="{{ post.url | absolute_url }}">0 Comments</a>
+      <a data-disqus-identifier="{{ post.id }}"></a>
     </p>
   </article>
 </div>
