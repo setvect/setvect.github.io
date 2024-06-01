@@ -314,3 +314,4 @@ assets:
   css:
     - "/assets/css/main.css"
     - "/assets/css/custom.css"
+favicon: /favicon.ico
