@@ -4,4 +4,4 @@
 
 ## 로컬 실행 방법
 1. ruby를 설치함
-2. 터미널에서 실행 'bundle exec jekyll serve'
+2. 터미널에서 실행 `bundle exec jekyll serve`
