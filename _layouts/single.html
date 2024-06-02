@@ -65,10 +65,16 @@ layout: default
       {% include post_pagination.html %}
     </div>
 
+    <div>
+      <h3>Debug Information:</h3>
+      <p>jekyll.environment: {{ jekyll.environment }}</p>
+      <p>site.comments.provider: {{ site.comments.provider }}</p>
+      <p>page.comments: {{ page.comments }}</p>
+    </div>
+
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
       {% include comments.html %}
     {% endif %}
-  </article>
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
