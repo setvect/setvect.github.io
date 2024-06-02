@@ -11,7 +11,6 @@
     {% endif %}
 
     {% if document.read_time and document.show_date %}<span class="page__meta-sep"></span>{% endif %}
-
     {% if document.read_time %}
       {% assign words_per_minute = document.words_per_minute | default: site.words_per_minute | default: 200 %}
       {% assign words = document.content | strip_html | number_of_words %}
@@ -25,6 +24,15 @@
         {% else %}
           {{ words | divided_by: words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
         {% endif %}
+      </span>
+    {% endif %}
+
+    <!--- 댓글 개수 표시 -->
+    {% if document.comments  %}<span class="page__meta-sep"></span>{% endif %}
+    {% if document.comments %}
+      <span class="page__meta-comments">
+        <i class="far fa-fw fa-comment-dots" aria-hidden="true"></i>
+        Comments: <span class="comment_count" data-pathname="{{ post.url }}" data-repo="setvect/setvect.github.io">0</span>
       </span>
     {% endif %}
   </p>

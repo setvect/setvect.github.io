@@ -26,10 +26,5 @@
     </h2>
     {% include page__meta.html type=include.type %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
-    <!-- 댓글 수 표시 -->
-    <p class="comment-count">
-      <a data-disqus-identifier="{{ post.id }}"></a>
-    </p>
-    <p class="archive__item-date">{{ post.date | date: "%Y.%m.%d" }}</p>
   </article>
 </div>
