@@ -76,6 +76,19 @@ layout: default
       {% include comments.html %}
     {% endif %}
 
+    {% if site.comments.provider == "utterances" %}
+      <div id="utterances_thread"></div>
+      <script src="https://utteranc.es/client.js"
+              issue-term="{{ site.comments.utterances.issue_term }}"
+              theme="{{ site.comments.utterances.theme }}"
+              crossorigin="anonymous"
+              async>
+      </script>
+    {% else %}
+      <p>Utterances comments are not enabled.</p>
+    {% endif %}
+  </article>
+
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     {% include page__related.html posts=site.related_posts %}
